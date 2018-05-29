@@ -15,7 +15,7 @@ pipeline {
                 echo "Build No. is ${BUILD_NUMBER}"
                 echo "Build No. is $env:BUILD_NUMBER"
                 echo "Hello ${userFlag}"
-                powershell returnStatus: true, script: '.\\build.ps1}'
+                powershell returnStatus: true, script: '.\\build.ps1'
                 echo 'Powershell Build done...'
                                }
             }
