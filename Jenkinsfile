@@ -7,6 +7,7 @@ pipeline {
             steps {
                 echo 'Compiling...'
                 powershell returnStatus: true, script: '.\\build.ps1'
+                echo 'Powershell Build done...'
                 }
             }
         
