@@ -7,4 +7,5 @@ echo "UserFlag is $env:userFlag"
 echo "Choice is $env:Choice"
 echo "Choice is $Choice"
 echo "Choice is ${params.Choice}"
+echo "Powershell Workspace is ${workspace}"
 Copy-Item -Path "D:\Config\*" -Destination "D:\PACKAGES\" -Recurse -Force -ErrorAction Stop
