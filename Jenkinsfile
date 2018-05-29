@@ -20,7 +20,7 @@ pipeline {
 
             steps {
                 
-                sh "echo ${params.userFlag}"
+                echo "Hello ${params.userFlag}"
              
                 echo 'Testing...'
                 }
