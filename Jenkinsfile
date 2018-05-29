@@ -13,7 +13,7 @@ pipeline {
                 echo "Worksapce is ${workspace}"
                 
                 echo "EBuild No. is env.BUILD_NUMBER"
-                powershell returnStatus: true, script: '.\\build.ps1 ${params.userFlag}}'
+                powershell returnStatus: true, script: '.\\build.ps1 ${params.userFlag}'
                 echo 'Powershell Build done...'
                                }
             }
