@@ -19,7 +19,9 @@ pipeline {
         stage ('Testing Stage') {
 
             steps {
-                 "echo ${params.userFlag}"
+                step {
+                    "echo ${params.userFlag}"
+                }
                  "echo ${params.choice}"
                 echo 'Testing...'
                 }
