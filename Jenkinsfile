@@ -1,12 +1,9 @@
 pipeline {
     agent any
     
-    properties([
-  parameters([
-    string(name: 'DEPLOY_ENV', defaultValue: 'TESTING', description: 'The target environment', )
-   ])
-])
-
+   parameters {
+        booleanParam(defaultValue: true, description: '', name: 'userFlag')
+    }
 
     stages {
         stage ('Compile Stage') {
