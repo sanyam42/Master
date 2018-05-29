@@ -12,8 +12,10 @@ pipeline {
                 echo 'Compiling...'
                 echo "Worksapce is ${workspace}"
                 
-                echo "EBuild No. is env.BUILD_NUMBER"
-                powershell returnStatus: true, script: '.\\build.ps1 ${params.userFlag choice}'
+                echo "Build No. is ${BUILD_NUMBER}"
+                echo "Build No. is $env:BUILD_NUMBER"
+                echo "Hello ${userFlag}"
+                powershell returnStatus: true, script: '.\\build.ps1}'
                 echo 'Powershell Build done...'
                                }
             }
