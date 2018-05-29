@@ -12,15 +12,15 @@ pipeline {
                 echo 'Compiling...'
                 powershell returnStatus: true, script: '.\\build.ps1'
                 echo 'Powershell Build done...'
-                "echo ${params.userFlag}"
-                "echo ${params.choice}"
-                }
+                               }
             }
         
 
         stage ('Testing Stage') {
 
             steps {
+                 "echo ${params.userFlag}"
+                 "echo ${params.choice}"
                 echo 'Testing...'
                 }
             }
