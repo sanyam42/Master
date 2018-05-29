@@ -24,6 +24,7 @@ pipeline {
             steps {
                 
                 echo "Hello ${params.userFlag}"
+                echo "Hello ${params.choice}"
              
                 echo 'Testing...'
                 }
