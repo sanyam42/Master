@@ -16,7 +16,7 @@ pipeline {
                echo "Build result 1 is ${currentBuild.result}"
                 echo "Hello ${userFlag}"
                 
-               powershell (returnStatus: true, script: '.\\build.ps1' > status)
+               Build_status = powershell (returnStatus: true, script: '.\\build.ps1).trim()
                 
                 
                 echo "Build result 2 is "
