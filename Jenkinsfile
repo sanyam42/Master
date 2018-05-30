@@ -13,10 +13,12 @@ pipeline {
                 echo "Worksapce is ${workspace}"
                 
                 echo "Build No. is ${BUILD_NUMBER}"
-               
+               echo "Build result 1 is ${currentBuild.result}"
                 echo "Hello ${userFlag}"
                 powershell returnStatus: true, script: '.\\build.ps1'
+                echo "Build result 2 is ${currentBuild.result}"
                 echo 'Powershell Build done...'
+                echo "Build result 3 is ${currentBuild.result}"
                                }
             }
         
