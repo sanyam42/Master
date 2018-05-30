@@ -15,7 +15,7 @@ pipeline {
                 echo "Build No. is ${BUILD_NUMBER}"
                echo "Build result 1 is ${currentBuild.result}"
                 echo "Hello ${userFlag}"
-                echo $?
+                
                powershell (returnStatus: true, script: '.\\build.ps1' ; echo $? > status)
                 
                 
