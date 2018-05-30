@@ -3,6 +3,9 @@ pipeline {
     
    parameters {
         booleanParam(defaultValue: true, description: '', name: 'userFlag')
+       
+       def Build_status = 'True'
+
     }
 
     stages {
@@ -17,7 +20,7 @@ pipeline {
                 echo "Hello ${userFlag}"
                 
                
-               def Build_status = powershell returnStatus: true, script: '.\\build.ps1'
+               Build_status = powershell returnStatus: true, script: '.\\build.ps1'
                 
                 
                 echo "Build result 2 is "
