@@ -15,7 +15,8 @@ pipeline {
                 echo "Build No. is ${BUILD_NUMBER}"
                echo "Build result 1 is ${currentBuild.result}"
                 echo "Hello ${userFlag}"
-                def Build_Result = powershell (returnStatus: true, script: '.\\build.ps1')
+               powershell (returnStatus: true, script: '.\\build.ps1')
+                def lines = readFile('result').split("\r?\n")
                 echo "Build result 2 is ${Build_Result}"
                 echo 'Powershell Build done...'
                 echo "Build result 3 is ${currentBuild.result}"
