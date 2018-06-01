@@ -23,7 +23,7 @@ pipeline {
                    echo "2"
                 echo workspace
                 echo "3"
-                echo Build_Numbe
+                echo "${Build_Numbe}"
                 
                
                powershell returnStatus: true, script: '.\\build.ps1'
