@@ -27,7 +27,7 @@ pipeline {
                 
                
                powershell returnStatus: true, script: '.\\build.ps1'
-                echo currentBuild.result
+                echo LASTEXITCODE
                 
                 echo "Build result 2 is "
                 echo 'Powershell Build done...'
