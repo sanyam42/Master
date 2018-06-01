@@ -21,7 +21,7 @@ pipeline {
                 echo "1"
                 echo Build_Number
                    echo "2"
-                echo $workspace
+                echo workspace
                 echo "3"
                 echo Build_Numbe
                 
