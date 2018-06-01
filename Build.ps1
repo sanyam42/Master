@@ -3,7 +3,7 @@
         [parameter(Mandatory=$true,Position=0)] 
         [String] 
         [ValidateNotNullOrEmpty()] 
-        $USER_flag
+        USER_flag
         
     ) 
 
