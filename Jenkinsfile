@@ -27,7 +27,7 @@ pipeline {
                 
                
                powershell returnStatus: true, script: '.\\build.ps1'
-                echo LASTEXITCODE
+                build job: 'GARM_DEPLOY'
                 
                 echo "Build result 2 is "
                 echo 'Powershell Build done...'
