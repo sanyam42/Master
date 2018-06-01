@@ -48,7 +48,7 @@ pipeline {
             }
 
             steps {
-                
+                echo "Hello, ${PERSON}, nice to meet you."
                 echo "Hello ${params.userFlag}"
                 echo "Hello ${params.choice}"
              
