@@ -25,7 +25,7 @@ Invoke-Command -ScriptBlock $GCD -ArgumentList $env:Choice
 
 if ($? -eq "True")
 {
-Write-Error "SONARQUBE NOT SELECTED"
+echo "SONARQUBE NOT SELECTED"
 echo "Exiting 1"  ; exit 1
 }
 echo "Not exiting 1"
