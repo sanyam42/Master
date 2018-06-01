@@ -4,7 +4,7 @@ pipeline {
    parameters {
         booleanParam(defaultValue: true, description: '', name: 'userFlag')
        
-       def Build_status = 'True'
+      
 
     }
 
