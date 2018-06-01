@@ -12,7 +12,7 @@ $Ch = $args[0]
 powershell -file D:\Powershell\GARM_Deploy.ps1 $Ch 
 }
 
-Invoke-Command -ComputerName $SERVER -ScriptBlock $GCD -ArgumentList $env:Choice
+Invoke-Command -ScriptBlock $GCD -ArgumentList $env:Choice
 
 if ($? -eq "True")
 {echo "Exiting 1"  ; exit 1
