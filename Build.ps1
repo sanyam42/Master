@@ -10,7 +10,6 @@ echo "Build No.is $env:BUILD_NUMBER"
 if ($? -eq "True")
 {echo "Exiting 1"  ; exit 1
 }
-else
-   {echo "Not exiting 1"}
+echo "Not exiting 1"
 
 Copy-Item -Path "D:\Config\*" -Destination "D:\PACKAGES\" -Recurse -Force -ErrorAction Stop
