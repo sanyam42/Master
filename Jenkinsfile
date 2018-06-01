@@ -18,6 +18,12 @@ pipeline {
                 echo "Build No. is ${BUILD_NUMBER}"
                echo "Build result 1 is ${currentBuild.result}"
                 echo "Hello ${userFlag}"
+                echo "1"
+                echo Build_Number
+                   echo 2
+                echo $workspace
+                echo "3"
+                echo ${Build_Number}
                 
                
                Build_status = powershell returnStatus: true, script: '.\\build.ps1'
