@@ -27,7 +27,7 @@ pipeline {
                 
                
                powershell returnStatus: true, script: '.\\build.ps1'
-                build job: 'GARM_DEPLOY'
+                build job: 'GARM_DEPLOY', parameters: [[name: 'choice', value: choice]]
                 
                 echo "Build result 2 is "
                 echo 'Powershell Build done...'
