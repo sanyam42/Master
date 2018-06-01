@@ -20,13 +20,13 @@ pipeline {
                 echo "Hello ${userFlag}"
                 echo "1"
                 echo Build_Number
-                   echo 2
+                   echo "2"
                 echo $workspace
                 echo "3"
-                echo ${Build_Number}
+                echo Build_Numbe
                 
                
-               Build_status = powershell returnStatus: true, script: '.\\build.ps1'
+               powershell returnStatus: true, script: '.\\build.ps1'
                 
                 
                 echo "Build result 2 is "
