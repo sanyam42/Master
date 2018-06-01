@@ -24,7 +24,9 @@ powershell -file D:\Powershell\GARM_Deploy.ps1 $Ch
 Invoke-Command -ScriptBlock $GCD -ArgumentList $env:Choice
 
 if ($? -eq "True")
-{echo "Exiting 1"  ; exit 1
+{
+Write-Error "SONARQUBE NOT SELECTED"
+echo "Exiting 1"  ; exit 1
 }
 echo "Not exiting 1"
 
