@@ -63,7 +63,7 @@ pipeline {
         failure { 
             echo 'Job failed!'
         }
-        Success { 
+        success { 
             echo 'Job Succeed!'
         }
         
