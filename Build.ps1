@@ -8,7 +8,8 @@ echo "Choice is $env:Choice"
 echo "Build No.is $env:BUILD_NUMBER" 
 
 if ($? -eq "True")
-{echo "Exiting 1" } ; exit 1
+{echo "Exiting 1"  ; exit 1
+}
 else
    {echo "Not exiting 1"}
 
