@@ -1,8 +1,8 @@
  param( 
         
-        [parameter(Mandatory=$true,Position=0)] 
+        [parameter(Mandatory=$false,Position=0)] 
         [String] 
-        [ValidateNotNullOrEmpty()] 
+        
         USER_flag
         
     ) 
