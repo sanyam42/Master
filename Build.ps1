@@ -2,10 +2,8 @@
         
         [parameter(Mandatory=$false,Position=0)] 
         [String] 
-        
-        USER_flag
-        
-    ) 
+        $USER_flag
+      ) 
 
 echo "@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@"
 Write-Host "SONARQUBE NOT SELECTED"
