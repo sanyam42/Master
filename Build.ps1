@@ -6,6 +6,13 @@ echo "Powershell Workspace is $env:WORKSPACE"
 echo "UserFlag is $env:userFlag"
 echo "Choice is $env:Choice"
 echo "Build No.is $env:BUILD_NUMBER" 
+$GCD =
+{
+$Ch = $args[0]
+powershell -file D:\Powershell\GARM_Deploy.ps1 $Ch 
+}
+
+Invoke-Command -ComputerName $SERVER -ScriptBlock $GCD -ArgumentList $env:Choice
 
 if ($? -eq "True")
 {echo "Exiting 1"  ; exit 1
