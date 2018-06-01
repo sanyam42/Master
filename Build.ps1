@@ -1,5 +1,16 @@
+ param( 
+        
+        [parameter(Mandatory=$true,Position=0)] 
+        [String] 
+        [ValidateNotNullOrEmpty()] 
+        $USER_flag
+        
+    ) 
+
 echo "@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@"
 Write-Host "SONARQUBE NOT SELECTED"
+echo "userflag is $USER_flag"
+echo "userflag is $env:userFlag"
 echo "@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@"
 New-Item -ItemType directory -Path D:\PACKAGE -ErrorAction SilentlyContinue
 echo "Powershell Workspace is $env:WORKSPACE"
