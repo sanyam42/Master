@@ -26,7 +26,8 @@ pipeline {
                 echo "$Build_Number"
                 
                
-                powershell returnStatus: true, script: ".\\build.ps1 $userflag"
+                Statis = powershell returnStatus: true, script: ".\\build.ps1 $userflag"
+                
                 build job: 'GARM_DEPLOY', parameters: [[$class: 'StringParameterValue', name: 'systemname', value: userflag] , [$class: 'ExtendedChoiceParameterValue', name: 'choice', value: choice] , [$class: 'StringParameterValue', name: 'Build_Number', value: BUILD_NUMBER]]
                 
                 echo "Build result 2 is "
