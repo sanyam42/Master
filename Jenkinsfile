@@ -12,6 +12,12 @@ pipeline {
         stage ('Compile Stage') {
 
             steps {
+                
+                new File( 'destination.txt' ).withWriter { w ->
+											 new File( 'source.txt' ).eachLine { line ->
+											 w << line.replaceAll( 'World', 'World!!!' ) + System.getProperty("line.separator")
+											  }
+									}
                 echo 'Compiling...'
                 echo "Worksapce is ${workspace}"
                 
