@@ -10,7 +10,7 @@ pipeline {
    parameters {
         booleanParam(defaultValue: true, description: '', name: 'userFlag')
        
-      workspace = "E:\"
+      workspace = "E:"
 
     }
 
