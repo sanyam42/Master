@@ -1,5 +1,11 @@
 pipeline {
-    agent any
+	agent {
+		node {
+					label 'master'
+					customWorkspace "D:/WS/${JOB_NAME}$Build_Number"
+					
+				 }
+	}
     
    parameters {
         booleanParam(defaultValue: true, description: '', name: 'userFlag')
@@ -12,12 +18,8 @@ pipeline {
         stage ('Compile Stage') {
 
             steps {
+                bat '''call .\\source.bat"
                 
-                new File( 'destination.txt' ).withWriter { w ->
-											 new File( 'source.txt' ).eachLine { line ->
-											 w << line.replaceAll( 'World', 'World!!!' ) + System.getProperty("line.separator")
-											  }
-									}
                 echo 'Compiling...'
                 echo "Worksapce is ${workspace}"
                 
