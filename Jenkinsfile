@@ -13,7 +13,7 @@ pipeline {
       
 
     }
-workspace = "E:"
+def workspace = "E:"
     stages {
         stage ('Compile Stage') {
 
