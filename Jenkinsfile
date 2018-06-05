@@ -3,6 +3,9 @@ pipeline {
 		node {
 					label 'master'
 					customWorkspace "D:/WS/${JOB_NAME}$Build_Number"
+			
+			def workspace = "E:"
+			echo workspace
 					
 				 }
 	}
@@ -13,7 +16,7 @@ pipeline {
       
 
     }
-def workspace = "E:"
+
     stages {
         stage ('Compile Stage') {
 
