@@ -18,8 +18,8 @@ pipeline {
         stage ('Compile Stage') {
 
             steps {
-                bat '''call .\\source.bat"
                 
+                $Workspace = "D:/WS"
                 echo 'Compiling...'
                 echo "Worksapce is ${workspace}"
                 
