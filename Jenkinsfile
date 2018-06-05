@@ -19,7 +19,7 @@ pipeline {
 
             steps {
                 
-                $Workspace = "D:/WS"
+                Workspace = "D:/WS"
                 echo 'Compiling...'
                 echo "Worksapce is ${workspace}"
                 
