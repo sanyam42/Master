@@ -19,7 +19,7 @@ pipeline {
 
             steps {
                 
-                def Workspace = "D:/WS"
+                env.Workspace = "D:/WS"
                 echo 'Compiling...'
                 echo "Worksapce is ${workspace}"
                 
