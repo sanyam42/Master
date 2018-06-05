@@ -5,7 +5,7 @@ pipeline {
 					customWorkspace "D:/WS/${JOB_NAME}$Build_Number"
 			
 			def workspace = "E:"
-			echo workspace
+			
 					
 				 }
 	}
