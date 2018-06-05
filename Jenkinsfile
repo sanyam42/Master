@@ -4,7 +4,7 @@ pipeline {
 					label 'master'
 					customWorkspace "D:/WS/${JOB_NAME}$Build_Number"
 			
-			def workspace = E
+			
 			
 					
 				 }
