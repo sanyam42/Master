@@ -10,7 +10,7 @@ pipeline {
    parameters {
         booleanParam(defaultValue: true, description: '', name: 'userFlag')
        
-      
+      workspace = "E:\"
 
     }
 
@@ -19,9 +19,9 @@ pipeline {
 
             steps {
                 cd D:
-		 powershell script: ".\\Hello.ps1"
+		
 			
-                env.Workspace = "D:/WS"
+                
                 echo 'Compiling...'
                 echo "Worksapce is ${workspace}"
                 
