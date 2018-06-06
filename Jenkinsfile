@@ -20,7 +20,7 @@
 
 	    
             stage ('Compile Stage') {
-		        Parallel {   
+		        parallel {   
 			                        stage ('Sonar Stage') {
                                                             agent {
                                                                 label "master"
