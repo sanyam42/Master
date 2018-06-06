@@ -32,7 +32,7 @@ pipeline {
                                                             echo "Build result 3 is ${currentBuild.result}"
                                                             }
                                                     }
-                                                    }
+                                                    },
 
                 Fortify: { stage ('Compile 2 Stage') {
                                                     steps {
