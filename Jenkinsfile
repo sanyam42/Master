@@ -20,6 +20,7 @@
 
 	    
             stage ('Compile Stage') {
+		     steps {
 		        Parallel {   
 			                        stage ('Sonar Stage') {
                                         		                                                                    steps {
@@ -51,6 +52,7 @@
                                    			            }
                                        
 				           }
+		     }
 	        }
     
         
