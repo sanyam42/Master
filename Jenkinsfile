@@ -1,14 +1,10 @@
 pipeline {
 	agent {
-		node {
-					label 'master'
-					customWorkspace "D:/WS/${JOB_NAME}$Build_Number"
-			
-			
-			
-					
-				 }
-	}
+		    node {
+					    label 'master'
+					    customWorkspace "D:/WS/${JOB_NAME}$Build_Number"
+	     	     }
+	       }
     
    parameters {
         booleanParam(defaultValue: true, description: '', name: 'userFlag')
@@ -16,81 +12,92 @@ pipeline {
       
 
     }
+	 
+	 
 
     stages {
-        stage ('Compile Stage') {
+	    
 
-            steps {
-           
-		
+	    
+            stage ('Compile Stage') {
+		        parallel {   
+			                        stage ('Sonar Stage') {
+                                                            
 
-			
-                
-                echo 'Compiling...'
-                echo "Worksapce is ${workspace}"
-                
-                echo "Build No. is ${BUILD_NUMBER}"
-               echo "Build result 1 is ${currentBuild.result}"
-                echo "Hello ${userFlag}"
-                echo "1"
-                echo Build_Number
-                   echo "2"
-                echo workspace
-                echo "3"
-                echo "$Build_Number"
-                
-               
-               powershell script: ".\\build.ps1 $userflag"
-               
-                          
-                build job: 'GARM_DEPLOY', parameters: [[$class: 'StringParameterValue', name: 'systemname', value: userflag] , [$class: 'ExtendedChoiceParameterValue', name: 'choice', value: choice] , [$class: 'StringParameterValue', name: 'Build_Number', value: BUILD_NUMBER]]
-                
-                echo "Build result 2 is "
-                echo 'Powershell Build done...'
-                echo "Build result 3 is ${currentBuild.result}"
-                               }
-            }
+                                        		                                                                    steps {
+								            echo 'Compiling...'
+								                echo "Worksapce is ${workspace}"
+								                echo "Build No. is ${BUILD_NUMBER}"
+								                echo "Build result 1 is ${currentBuild.result}"
+								                echo "Hello ${userFlag}"
+								                echo "1"
+								                echo Build_Number
+								                powershell script: ".\\build.ps1 $userflag"
+								    
+								                echo "Build result 2 is "
+								                echo 'Powershell Build done...'
+								                echo "Build result 3 is ${currentBuild.result}"
+																    
+                                            			            }
+                                   			                }
+
+			    	                                                        stage ('Fortify Stage') { 
+                        
+                                        		            steps {
+								            echo workspace
+								                echo "3"
+								                echo "$Build_Number"
+								               build job: 'GARM_DEPLOY', parameters: [[$class : 'StringParameterValue', name: 'systemname', value: userflag] , [$class : 'ExtendedChoiceParameterValue', name: 'choice', value: choice] , [$class : 'StringParameterValue', name: 'Build_Number', value: BUILD_NUMBER]]*/
+								                echo "Build result 2 is "
+								                echo 'Powershell Build done...'
+								                echo "Build result 3 is ${currentBuild.result}"
+                                            			            }
+                                   			            }
+                                       
+				           }
+	        }
+    
+        
         
 
         stage ('Testing Stage') {
                                 
-            input {
-                message "Should we continue?"
-                ok "Yes, we should."
-                
-                parameters {
-                    string(name: 'PERSON', defaultValue: 'Mr Jenkins', description: 'Who should I say hello to?')
-                }
-            }
+                                    input {
+                                            message "Should we continue?"
+                                            ok "Yes, we should."
+                                            parameters {
+                                                        string(name: 'PERSON', defaultValue: 'Mr Jenkins', description: 'Who should I say hello to?')
+                                                       }
+                                           }
 
-            steps {
-                echo "Hello, ${PERSON}, nice to meet you."
-                echo "Hello ${params.userFlag}"
-                echo "Hello ${params.choice}"
-             
-                echo 'Testing...'
-                }
-            }
+                                     steps {
+                                            echo "Hello, ${PERSON}, nice to meet you."
+                                            echo "Hello ${params.userFlag}"
+                                            echo "Hello ${params.choice}"
+                                            echo 'Testing...'
+                                           }
+                                }
         
 
 
         stage ('Deployment Stage') {
-            steps {
-               echo 'Deploying...'
-                }
-            }
+                                        steps {
+                                           echo 'Deploying...'
+                                            }
+                                   }
         }
     
     post { 
         always { 
-            echo 'I will always say Hello again!'
-        }
+                echo 'I will always say Hello again!'
+		
+               }
         failure { 
-            echo 'Job failed!'
-        }
+                 echo 'Job failed!'
+                }
         success { 
-            echo 'Job Succeed!'
-        }
+                  echo 'Job Succeed!'
+                }
         
     }
 
