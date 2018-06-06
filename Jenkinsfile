@@ -14,6 +14,19 @@
     }
 
     stages {
+	    parallel firstBranch: {
+		    stage ('Starting Test') 
+		    {
+			echo 'Compiling...'
+		    }
+		}, secondBranch: {
+		    stage ('Starting Test2') 
+		    {
+			echo "1"
+		    }
+		}
+
+	    
             stage ('Compile Stage') {
                                        steps {
 					       parallel(
