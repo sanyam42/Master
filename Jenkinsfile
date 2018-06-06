@@ -1,4 +1,4 @@
-pipeline {
+ pipeline {
 	agent {
 		    node {
 					    label 'master'
@@ -14,40 +14,36 @@ pipeline {
     }
 
     stages {
-
-    parallel (
-                 Sonar: { stage ('Compile Stage') {
-                                                    steps {
-                                                            echo 'Compiling...'
-                                                            echo "Worksapce is ${workspace}"
-                                                            echo "Build No. is ${BUILD_NUMBER}"
-                                                            echo "Build result 1 is ${currentBuild.result}"
-                                                            echo "Hello ${userFlag}"
-                                                            echo "1"
-                                                            echo Build_Number
-                                                            powershell script: ".\\build.ps1 $userflag"
-                                                            build job: 'GARM_DEPLOY', parameters: [[$class: 'StringParameterValue', name: 'systemname', value: userflag] , [$class: 'ExtendedChoiceParameterValue', name: 'choice', value: choice] , [$class: 'StringParameterValue', name: 'Build_Number', value: BUILD_NUMBER]]
-                                                            echo "Build result 2 is "
-                                                            echo 'Powershell Build done...'
-                                                            echo "Build result 3 is ${currentBuild.result}"
-                                                            }
-                                                    }
-                                                    },
-
-                Fortify: { stage ('Compile 2 Stage') {
-                                                    steps {
-                                                            echo workspace
-                                                            echo "3"
-                                                            echo "$Build_Number"
-                                                            build job: 'GARM_DEPLOY', parameters: [[$class: 'StringParameterValue', name: 'systemname', value: userflag] , [$class: 'ExtendedChoiceParameterValue', name: 'choice', value: choice] , [$class: 'StringParameterValue', name: 'Build_Number', value: BUILD_NUMBER]]
-                                                            echo "Build result 2 is "
-                                                            echo 'Powershell Build done...'
-                                                            echo "Build result 3 is ${currentBuild.result}"
-                                                            }
-                                                     }
-                                                    }
-
-    )
+            stage ('Compile Stage') {
+                                       steps {
+					       parallel(
+							  a: {
+							  	    echo 'Compiling...'
+								    echo "Worksapce is ${workspace}"
+								    echo "Build No. is ${BUILD_NUMBER}"
+								    echo "Build result 1 is ${currentBuild.result}"
+								    echo "Hello ${userFlag}"
+								    echo "1"
+								    echo Build_Number
+								    powershell script: ".\\build.ps1 $userflag"
+								    build job: 'GARM_DEPLOY', parameters: [[$class: 'StringParameterValue', name: 'systemname', value: userflag] , [$class: 'ExtendedChoiceParameterValue', name: 'choice', value: choice] , [$class: 'StringParameterValue', name: 'Build_Number', value: BUILD_NUMBER]]
+								    echo "Build result 2 is "
+								    echo 'Powershell Build done...'
+								    echo "Build result 3 is ${currentBuild.result}"
+							      },
+							  b: {
+							            echo workspace
+								    echo "3"
+								    echo "$Build_Number"
+								    build job: 'GARM_DEPLOY', parameters: [[$class: 'StringParameterValue', name: 'systemname', value: userflag] , [$class: 'ExtendedChoiceParameterValue', name: 'choice', value: choice] , [$class: 'StringParameterValue', name: 'Build_Number', value: BUILD_NUMBER]]
+								    echo "Build result 2 is "
+								    echo 'Powershell Build done...'
+								    echo "Build result 3 is ${currentBuild.result}"
+							      }
+						       )
+				       }
+	    }
+    
         
         
 
