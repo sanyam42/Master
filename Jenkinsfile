@@ -22,16 +22,7 @@ pipeline {
 
             steps {
            
-		agent {
-		node {
-					label 'master'
-					customWorkspace "D:/WS/$Build_Number${JOB_NAME}"
-			
-			
-			
-					
-				 }
-	}
+		
 
 			
                 
