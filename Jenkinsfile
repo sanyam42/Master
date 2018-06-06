@@ -20,9 +20,12 @@
 
 	    
             stage ('Compile Stage') {
-		     steps {
 		        Parallel {   
 			                        stage ('Sonar Stage') {
+                                                            agent {
+                                                                label "master"
+                                                            }
+
                                         		                                                                    steps {
 								            echo 'Compiling...'
 								                echo "Worksapce is ${workspace}"
@@ -39,7 +42,10 @@
                                             			            }
                                    			                }
 
-			    	                                                        stage ('Fortify Stage') {
+			    	                                                        stage ('Fortify Stage') { 
+                        agent {
+                                                                label "master"
+                                                            }
                                         		            steps {
 								            echo workspace
 								                echo "3"
@@ -52,7 +58,6 @@
                                    			            }
                                        
 				           }
-		     }
 	        }
     
         
