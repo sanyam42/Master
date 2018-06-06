@@ -13,51 +13,45 @@
 
     }
 	 
-	 parallel firstBranch: {
-		    stage ('Starting Test') 
-		    {
-			echo 'Compiling...'
-		    }
-		}, secondBranch: {
-		    stage ('Starting Test2') 
-		    {
-			echo "1"
-		    }
-		}
+	 
 
     stages {
 	    
 
 	    
             stage ('Compile Stage') {
-                                       steps {
-					       parallel(
-							  a: {
-							  	    echo 'Compiling...'
-								    echo "Worksapce is ${workspace}"
-								    echo "Build No. is ${BUILD_NUMBER}"
-								    echo "Build result 1 is ${currentBuild.result}"
-								    echo "Hello ${userFlag}"
-								    echo "1"
-								    echo Build_Number
-								    powershell script: ".\\build.ps1 $userflag"
+		        Parallel {   
+			                        stage ('Sonar Stage') {
+                                        		                                                                    steps {
+								            echo 'Compiling...'
+								                echo "Worksapce is ${workspace}"
+								                echo "Build No. is ${BUILD_NUMBER}"
+								                echo "Build result 1 is ${currentBuild.result}"
+								                echo "Hello ${userFlag}"
+								                echo "1"
+								                echo Build_Number
+								                powershell script: ".\\build.ps1 $userflag"
 								    
-								    echo "Build result 2 is "
-								    echo 'Powershell Build done...'
-								    echo "Build result 3 is ${currentBuild.result}"
-							      },
-							  b: {
-							            echo workspace
-								    echo "3"
-								    echo "$Build_Number"
-								   /* build job: 'GARM_DEPLOY', parameters: [[$class : 'StringParameterValue', name: 'systemname', value: userflag] , [$class : 'ExtendedChoiceParameterValue', name: 'choice', value: choice] , [$class : 'StringParameterValue', name: 'Build_Number', value: BUILD_NUMBER]]*/
-								    echo "Build result 2 is "
-								    echo 'Powershell Build done...'
-								    echo "Build result 3 is ${currentBuild.result}"
-							      }
-						       )
-				       }
-	    }
+								                echo "Build result 2 is "
+								                echo 'Powershell Build done...'
+								                echo "Build result 3 is ${currentBuild.result}"
+                                            			            }
+                                   			                }
+
+			    	                                                        stage ('Fortify Stage') {
+                                        		            steps {
+								            echo workspace
+								                echo "3"
+								                echo "$Build_Number"
+								               /* build job: 'GARM_DEPLOY', parameters: [[$class : 'StringParameterValue', name: 'systemname', value: userflag] , [$class : 'ExtendedChoiceParameterValue', name: 'choice', value: choice] , [$class : 'StringParameterValue', name: 'Build_Number', value: BUILD_NUMBER]]*/
+								                echo "Build result 2 is "
+								                echo 'Powershell Build done...'
+								                echo "Build result 3 is ${currentBuild.result}"
+                                            			            }
+                                   			            }
+                                       
+				           }
+	        }
     
         
         
