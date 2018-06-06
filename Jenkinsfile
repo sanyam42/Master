@@ -90,6 +90,7 @@
     post { 
         always { 
                 echo 'I will always say Hello again!'
+		step([$class: 'WsCleanup'])
                }
         failure { 
                  echo 'Job failed!'
