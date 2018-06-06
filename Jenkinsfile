@@ -22,9 +22,7 @@
             stage ('Compile Stage') {
 		        parallel {   
 			                        stage ('Sonar Stage') {
-                                                            agent {
-                                                                label "master"
-                                                            }
+                                                            
 
                                         		                                                                    steps {
 								            echo 'Compiling...'
@@ -39,13 +37,12 @@
 								                echo "Build result 2 is "
 								                echo 'Powershell Build done...'
 								                echo "Build result 3 is ${currentBuild.result}"
+																    
                                             			            }
                                    			                }
 
 			    	                                                        stage ('Fortify Stage') { 
-                        agent {
-                                                                label "master"
-                                                            }
+                        
                                         		            steps {
 								            echo workspace
 								                echo "3"
