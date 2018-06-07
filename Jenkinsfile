@@ -27,7 +27,7 @@ pipeline {
 									 echo "Value of check  $check..."
 									 /*expression { CHECK == 'NULL' }*/
 									 script {
-										 if (CHECK==null){
+										 if (CHECK==""){
 										    echo "This is Pull request"
 											 Check = "NA"
 											 echo "Value of check 2 $check..."
