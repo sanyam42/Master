@@ -99,6 +99,4 @@ pipeline {
                   echo 'Job Succeed!'
                 }
         
-    }
-
-    }
+    }}
