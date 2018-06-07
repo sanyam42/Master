@@ -23,21 +23,21 @@ pipeline {
                                                             
 
                                         		         steps {
-									 echo "Value of check is ${Check} $check..."
-									 echo "Value of check  $check..."
+									 echo "Value of check is ${Check} $check"
+									 echo "Value of check  $check"
 									 /*expression { CHECK == 'NULL' }*/
 									 script {
 										 if (CHECK==""){
 										    echo "This is Pull request"
 											 env.Check = "NA"
-											 echo "Value of check 2 $check..."
+											 echo "Value of check 2 $check"
 											 
 											 
 										}else{
 										    echo "This is Push request"
 										}
 									 }
-									 echo "Value of check 3  $check..."
+									 echo "Value of check 3  $check"
 									 
 
 									
