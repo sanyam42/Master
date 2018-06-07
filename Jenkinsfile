@@ -29,11 +29,15 @@ pipeline {
 									 script {
 										 if (CHECK==null){
 										    echo "This is Pull request"
+											 Check = "NA"
+											 echo "Value of check 2 $check..."
+											 
 											 
 										}else{
 										    echo "This is Push request"
 										}
 									 }
+									 echo "Value of check 3  $check..."
 									 
 
 									
