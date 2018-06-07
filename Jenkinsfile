@@ -21,16 +21,16 @@ pipeline {
 		        parallel {   
 			                        stage ('Sonar Stage') {
                                                             
-
-                                        		         steps {
-									 echo "Value of check is ${Check} $check..."
-									 echo "Value of check  $check..."
-									 /*expression { CHECK == 'NULL' }*/
-									 if (env.CHECK!=NULL){
+if (env.CHECK!=NULL){
 										    echo "This is Pull request"
 										}else{
 										    echo "This is Push request"
 										}
+                                        		         steps {
+									 echo "Value of check is ${Check} $check..."
+									 echo "Value of check  $check..."
+									 /*expression { CHECK == 'NULL' }*/
+									 
 
 									
 										
