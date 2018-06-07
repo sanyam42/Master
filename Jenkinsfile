@@ -96,6 +96,7 @@ pipeline {
                                             echo "Hello ${params.userFlag}"
                                             echo "Hello ${params.choice}"
                                             echo 'Testing...'
+					     publishHTML([allowMissing: false, alwaysLinkToLastBuild: false, keepAll: false, reportDir: 'C:\\temp', reportFiles: 'Release.log', reportName: 'RELEASE LOG'])
                                            }
                                 }
         
