@@ -45,7 +45,7 @@ pipeline {
 								            echo workspace
 								                echo "3"
 								                echo "$Build_Number"
-								               build job: 'GARM_DEPLOY', parameters: [[$class : 'StringParameterValue', name: 'systemname', value: userflag] , [$class : 'ExtendedChoiceParameterValue', name: 'choice', value: choice] , [$class : 'StringParameterValue', name: 'Build_Number', value: BUILD_NUMBER]]*/
+								               build job: 'GARM_DEPLOY', parameters: [[$class : 'StringParameterValue', name: 'systemname', value: userflag] , [$class : 'ExtendedChoiceParameterValue', name: 'choice', value: choice] , [$class : 'StringParameterValue', name: 'Build_Number', value: BUILD_NUMBER]]
 								                echo "Build result 2 is "
 								                echo 'Powershell Build done...'
 								                echo "Build result 3 is ${currentBuild.result}"
@@ -85,6 +85,18 @@ pipeline {
                                             }
                                    }
         }
-    
+    post { 
+        always { 
+                echo 'I will always say Hello again!'
+		
+               }
+        failure { 
+                 echo 'Job failed!'
+                }
+        success { 
+                  echo 'Job Succeed!'
+                }
+        
+    }
     
     }
