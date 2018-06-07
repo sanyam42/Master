@@ -26,7 +26,7 @@ pipeline {
 									 echo "Value of check is ${Check} $check..."
 									 echo "Value of check  $check..."
 									 expression { CHECK == 'NULL' }
-									 ()
+									 {}
 										 echo "done"
 									 
 									 
