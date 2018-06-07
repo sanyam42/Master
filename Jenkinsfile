@@ -25,9 +25,9 @@ pipeline {
                                         		         steps {
 									 echo "Value of check is ${Check} $check..."
 									 echo "Value of check  $check..."
-									 expression { CHECK == 'NULL' } {
-										 echo " done"
-									 }
+									 expression { CHECK == 'NULL' } 
+										 echo "done"
+									 
 									 
 									 echo "Value of check is ${Check} ..."
 								            echo 'Compiling...'
