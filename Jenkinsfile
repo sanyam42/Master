@@ -22,7 +22,15 @@ pipeline {
 			                        stage ('Sonar Stage') {
                                                             
 
-                                        		                                                                    steps {
+                                        		         steps {
+									 echo "Value of check is ${Check} $check..."
+									 echo "Value of check  $check..."
+									 $Check
+									 IF ${Check} == Null 
+									 {
+										 ${Check} = NA
+									 }
+									 echo "Value of check is ${Check} ..."
 								            echo 'Compiling...'
 								                echo "Worksapce is ${workspace}"
 								                echo "Build No. is ${BUILD_NUMBER}"
