@@ -25,7 +25,7 @@ pipeline {
                                         		         steps {
 									 echo "Value of check is ${Check} $check..."
 									 echo "Value of check  $check..."
-									 Check
+									 
 									 /*IF ${Check} == Null 
 									 {
 										 ${Check} = NA
