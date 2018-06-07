@@ -26,7 +26,7 @@ pipeline {
 									 echo "Value of check is ${Check} $check..."
 									 echo "Value of check  $check..."
 									 /*expression { CHECK == 'NULL' }*/
-									 if (CHECK!=NULL){
+									 if (env.CHECK!=NULL){
 										    echo "This is Pull request"
 										}else{
 										    echo "This is Push request"
