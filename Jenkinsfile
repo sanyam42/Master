@@ -25,9 +25,15 @@ pipeline {
                                         		         steps {
 									 echo "Value of check is ${Check} $check..."
 									 echo "Value of check  $check..."
-									 expression { CHECK == 'NULL' }
-									 {}
-										 echo "done"
+									 /*expression { CHECK == 'NULL' }*/
+									 if (CHECK!=NULL){
+										    echo "This is Pull request"
+										}else{
+										    echo "This is Push request"
+										}
+
+									
+										
 									 
 									 
 									 echo "Value of check is ${Check} ..."
