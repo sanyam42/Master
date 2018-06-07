@@ -29,7 +29,7 @@ pipeline {
 									 script {
 										 if (CHECK==""){
 										    echo "This is Pull request"
-											 Check = "NA"
+											 ${Check} = "NA"
 											 echo "Value of check 2 $check..."
 											 
 											 
