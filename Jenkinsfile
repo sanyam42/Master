@@ -25,11 +25,10 @@ pipeline {
                                         		         steps {
 									 echo "Value of check is ${Check} $check..."
 									 echo "Value of check  $check..."
+									 expression { CHECK == 'NULL' } {
+										 echo " done"
+									 }
 									 
-									 IF (${Check} == "$Null")
-									 {
-										 ${Check} = "NA"
-									 } 
 									 echo "Value of check is ${Check} ..."
 								            echo 'Compiling...'
 								                echo "Worksapce is ${workspace}"
