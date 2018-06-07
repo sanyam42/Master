@@ -33,7 +33,8 @@ pipeline {
 											 echo "Value of check 2 $check"
 											 
 											 
-										} if (Multiselect=="") {
+										} 
+										 if (Multiselect=="") {
 											echo "Value of Multiselect 1 $Multiselect"
 										    echo "This is Push request"
 											 env.Multiselect = "NA"
