@@ -9,7 +9,7 @@ pipeline {
     
    parameters {
         booleanParam(defaultValue: true, description: '', name: 'userFlag')
-	   file description: 'Blah', name: 'custom.xml'
+	   
    }
 	  
        	 
@@ -19,13 +19,20 @@ pipeline {
             stage ('Compile Stage') {
 		        parallel {   
 			                        stage ('Sonar Stage') {
+							 input {
+                                            message "Browse DB File?"
+                                            ok "Yes, we should."
+                                            parameters {
+                                                        File(name: 'service_File', defaultValue: '', description: 'Browse File')
+                                                       }
+                                           }
                                                             
 
                                         		         steps {
 									 echo "Value of check is ${Check} $check"
 									 echo "Value of check  $check"
 									 writeFile file: '\\temp.txt', text: "$string"
-									 powershell 'Get-Content .\\custom.xml'
+									
 
 																	
 									 script {
