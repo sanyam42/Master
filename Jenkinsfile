@@ -33,6 +33,7 @@ pipeline {
 									 echo "Value of check  $check"
 									 echo "Value of service_File  $service_File"
 									 writeFile file: '\\temp.txt', text: "$service_File"
+									 riteFile file: 'YAML.txt', text: params.string
 									
 
 																	
