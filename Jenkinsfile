@@ -34,7 +34,10 @@ pipeline {
 									  echo "Value of multistring  $string"
 									 powershell 'echo "1 $string 2 $env:string"'
 									 powershell "echo '1 $string 2 $env:string'"
-									 powershell '$string | Add-Content \'Database_File1.txt\''
+									 powershell "$string | Add-Content \'Database_File1.txt\'"
+									 powershell "$env:string | Add-Content \'Database_File2.txt\'"
+									 powershell '$env:string | Add-Content \'Database_File3.txt\''
+									 
 									 echo "Value of service_File  $service_File"
 									 writeFile file: '\\temp.txt', text: "$service_File"
 									 writeFile file: 'YAML.txt', text: params.string
