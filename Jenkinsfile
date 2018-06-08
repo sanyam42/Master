@@ -9,15 +9,11 @@ pipeline {
     
    parameters {
         booleanParam(defaultValue: true, description: '', name: 'userFlag')
+   }
 	   parameters {
   file description: 'Blah', name: 'custom.xml'
 }
-       
-      
-
-    }
-	 
-	 
+       	 
 
     stages {
 	    
