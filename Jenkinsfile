@@ -1,3 +1,7 @@
+parameters {
+  file description: 'Blah', name: 'custom.xml'
+}
+
 pipeline {
 	agent {
 		    node {
@@ -26,7 +30,17 @@ pipeline {
 									 echo "Value of check is ${Check} $check"
 									 echo "Value of check  $check"
 									 writeFile file: '\\temp.txt', text: "$string"
-									 /*expression { CHECK == 'NULL' }*/
+									 powershell 'Get-Content .\\custom.xml'
+
+									 input {
+										    message "Browse Database File"
+										    ok "Yes, we should."
+										    parameters {
+												string(name: 'PERSON', defaultValue: 'Mr Jenkins', description: 'Who should I say hello to?')
+											       }
+										   }
+
+									
 									 script {
 										 if (CHECK==""){
 										    echo "This is Pull request"
