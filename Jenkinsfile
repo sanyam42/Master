@@ -8,6 +8,9 @@ pipeline {
 					    label 'master'
 					    customWorkspace "D:/WS/${JOB_NAME}$Build_Number"
 	     	     }
+		parameters {
+  file description: 'Blah', name: 'custom.xml'
+}
 	       }
     
    parameters {
