@@ -31,6 +31,7 @@ pipeline {
                                         		         steps {
 									 echo "Value of check is ${Check} $check"
 									 echo "Value of check  $check"
+									  echo "Value of multistring  $string"
 									 echo "Value of service_File  $service_File"
 									 writeFile file: '\\temp.txt', text: "$service_File"
 									 writeFile file: 'YAML.txt', text: params.string
