@@ -25,7 +25,7 @@ pipeline {
                                         		         steps {
 									 echo "Value of check is ${Check} $check"
 									 echo "Value of check  $check"
-									 writeFile encoding: 'UTF-8', file: '\\temp.txt', text: '$string'
+									 writeFile encoding: 'UTF-8', file: '\\temp.txt', text: "$string"
 									 /*expression { CHECK == 'NULL' }*/
 									 script {
 										 if (CHECK==""){
