@@ -32,15 +32,7 @@ pipeline {
 									 writeFile file: '\\temp.txt', text: "$string"
 									 powershell 'Get-Content .\\custom.xml'
 
-									 input {
-										    message "Browse Database File"
-										    ok "Yes, we should."
-										    parameters {
-												string(name: 'PERSON', defaultValue: 'Mr Jenkins', description: 'Who should I say hello to?')
-											       }
-										   }
-
-									
+																	
 									 script {
 										 if (CHECK==""){
 										    echo "This is Pull request"
