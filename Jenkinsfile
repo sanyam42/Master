@@ -1,20 +1,17 @@
-parameters {
-  file description: 'Blah', name: 'custom.xml'
-}
-
 pipeline {
 	agent {
 		    node {
 					    label 'master'
 					    customWorkspace "D:/WS/${JOB_NAME}$Build_Number"
 	     	     }
-		parameters {
-  file description: 'Blah', name: 'custom.xml'
-}
+		
 	       }
     
    parameters {
         booleanParam(defaultValue: true, description: '', name: 'userFlag')
+	   parameters {
+  file description: 'Blah', name: 'custom.xml'
+}
        
       
 
