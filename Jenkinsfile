@@ -31,7 +31,7 @@ pipeline {
                                         		         steps {
 									 echo "Value of check is ${Check} $check"
 									 echo "Value of check  $check"
-									 writeFile file: '\\temp.txt', text: "$string"
+									 writeFile file: '\\temp.txt', text: "$service_File"
 									
 
 																	
