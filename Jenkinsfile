@@ -32,9 +32,12 @@ pipeline {
 									 echo "Value of check is ${Check} $check"
 									 echo "Value of check  $check"
 									  echo "Value of multistring  $string"
+									 powershell '$string | Add-Content \'Database_File1.txt\''
 									 echo "Value of service_File  $service_File"
 									 writeFile file: '\\temp.txt', text: "$service_File"
 									 writeFile file: 'YAML.txt', text: params.string
+									 powershell '''$C = Get-Content C:\\Users\\sangumbe\\.jenkins\\jobs\\PipelineAsCode\\builds\\281\\service_File 
+										       $C | Add-Content \'Service_File1.txt\''''
 									
 
 																	
