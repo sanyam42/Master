@@ -40,7 +40,8 @@ pipeline {
 									 echo "Value of service_File  $service_File"
 									 writeFile file: '\\temp.txt', text: "$service_File"
 									 writeFile file: 'YAML.txt', text: params.string
-									 powershell '''$C = Get-Content C:\\Users\\sangumbe\\.jenkins\\jobs\\PipelineAsCode\\builds\\281\\service_File
+									 powershell '''$C = Get-Content $env:service_File
+									 		echo " value of service file is $env:service_File" 
 											echo " value of c is $c" 
 											$C | Add-Content \'Database_File.txt\''''
 
