@@ -12,7 +12,13 @@ pipeline {
 	   
    }
 	  
-       	 
+    input {
+                                            message "Browse DB File?"
+                                            ok "Yes, we should."
+                                            parameters {
+                                                        file(name: 'servicFile', description: 'Browse File');file(name: 'serv_Fi', description: 'Browse File')
+                                                       }
+                                           }   	 
 
     stages {
 	    
