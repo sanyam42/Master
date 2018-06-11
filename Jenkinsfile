@@ -15,6 +15,23 @@ pipeline {
      
 
     stages {
+	    stage ('Browse Files') {
+		                            input {
+                                            message "Browse DB Files"
+                                            ok "Continue"
+                                            parameters {
+                                                        file(name: 'PB_FILE', description: 'Browse File');
+                                                        file(name: 'DATABASE_FILE', description: 'Browse File');
+                                                        file(name: 'RA_CONFIG_DATABASE_FILE', description: 'Browse File');
+                                                        file(name: 'POST_CONFIG_DATABASE_FILE', description: 'Browse File');
+                                                        file(name: 'CONFIGURATION_FILE', description: 'Browse File');
+                                                        file(name: 'SERVICE_FILE', description: 'Browse File');
+                                                       }
+                                           }
+                                    steps {
+        									 echo "BROSWE THE FILES"
+                                            }
+								}
 	    
             stage ('Compile Stage') {
 		        parallel {   
@@ -47,6 +64,19 @@ pipeline {
 											$C | Add-Content \'Database_File.txt\''''*/
 									 powershell '''$C = Get-Content $env:service_File
 											If ($c -ne $null) { Copy-Item "$env:service_File" -Destination "$env:Workspace\\" -Recurse -Force -ErrorAction Stop }'''
+									 powershell '''$PBFILE = Get-Content $env:PB_FILE
+                                                         $DATABASEFILE = Get-Content $env:DATABASE_FILE
+                                                         $RA_CONFIG_DATABASEFILE = Get-Content $env:RA_CONFIG_DATABASE_FILE
+                                                         $POST_CONFIG_DATABASEFILE = Get-Content $env:POST_CONFIG_DATABASE_FILE
+                                                         $CONFIGURATIONFILE = Get-Content $env:CONFIGURATION_FILE
+                                                         $SERVICEFILE = Get-Content $env:SERVICE_FILE                 
+                                                         If ($PBFILE -ne $null) { Copy-Item "$env:PB_FILE" -Destination "$env:Workspace\\" -Recurse -Force -ErrorAction Stop }
+                                                         If ($DATABASEFILE -ne $null) { Copy-Item "$env:DATABASE_FILE" -Destination "$env:Workspace\\" -Recurse -Force -ErrorAction Stop }
+                                                         If ($RA_CONFIG_DATABASEFILE -ne $null) { Copy-Item "$env:RA_CONFIG_DATABASE_FILE" -Destination "$env:Workspace\\" -Recurse -Force -ErrorAction Stop }
+                                                         If ($POST_CONFIG_DATABASEFILE -ne $null) { Copy-Item "$env:POST_CONFIG_DATABASE_FILE" -Destination "$env:Workspace\\" -Recurse -Force -ErrorAction Stop }
+                                                         If ($CONFIGURATIONFILE -ne $null) { Copy-Item "$env:CONFIGURATION_FILE" -Destination "$env:Workspace\\" -Recurse -Force -ErrorAction Stop }
+											             If ($SERVICEFILE -ne $null) { Copy-Item "$env:SERVICE_FILE" -Destination "$env:Workspace\\" -Recurse -Force -ErrorAction Stop }'''
+
 
 									 
 
