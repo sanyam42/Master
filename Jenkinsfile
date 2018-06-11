@@ -4,21 +4,21 @@ pipeline {
 					    label 'master'
 					    customWorkspace "D:/WS/${JOB_NAME}$Build_Number"
 	     	     }
-		
-	       }
-    
-   parameters {
-        booleanParam(defaultValue: true, description: '', name: 'userFlag')
-	   
-   }
-	  
-    input {
+		input {
                                             message "Browse DB File?"
                                             ok "Yes, we should."
                                             parameters {
                                                         file(name: 'servicFile', description: 'Browse File');file(name: 'serv_Fi', description: 'Browse File')
                                                        }
-                                           }   	 
+                                           }   	
+		
+	       }
+    
+   parameters {
+        booleanParam(defaultValue: true, description: '', name: 'userFlag')
+	  	}
+	  
+     
 
     stages {
 	    
