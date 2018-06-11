@@ -63,21 +63,9 @@ pipeline {
 											echo " value of c is $c" 
 											$C | Add-Content \'Database_File.txt\''''*/
 									 powershell '''$C = Get-Content $env:service_File
+									 		echo "$C"
 											If ($c -ne $null) { Copy-Item "$env:service_File" -Destination "$env:Workspace\\" -Recurse -Force -ErrorAction Stop }'''
-									 powershell '''$PBFILE = Get-Content $env:PB_FILE
-                                                         $DATABASEFILE = Get-Content $env:DATABASE_FILE
-                                                         $RA_CONFIG_DATABASEFILE = Get-Content $env:RA_CONFIG_DATABASE_FILE
-                                                         $POST_CONFIG_DATABASEFILE = Get-Content $env:POST_CONFIG_DATABASE_FILE
-                                                         $CONFIGURATIONFILE = Get-Content $env:CONFIGURATION_FILE
-                                                         $SERVICEFILE = Get-Content $env:SERVICE_FILE                 
-                                                         If ($PBFILE -ne $null) { Copy-Item "$env:PB_FILE" -Destination "$env:Workspace\\" -Recurse -Force -ErrorAction Stop }
-                                                         If ($DATABASEFILE -ne $null) { Copy-Item "$env:DATABASE_FILE" -Destination "$env:Workspace\\" -Recurse -Force -ErrorAction Stop }
-                                                         If ($RA_CONFIG_DATABASEFILE -ne $null) { Copy-Item "$env:RA_CONFIG_DATABASE_FILE" -Destination "$env:Workspace\\" -Recurse -Force -ErrorAction Stop }
-                                                         If ($POST_CONFIG_DATABASEFILE -ne $null) { Copy-Item "$env:POST_CONFIG_DATABASE_FILE" -Destination "$env:Workspace\\" -Recurse -Force -ErrorAction Stop }
-                                                         If ($CONFIGURATIONFILE -ne $null) { Copy-Item "$env:CONFIGURATION_FILE" -Destination "$env:Workspace\\" -Recurse -Force -ErrorAction Stop }
-											             If ($SERVICEFILE -ne $null) { Copy-Item "$env:SERVICE_FILE" -Destination "$env:Workspace\\" -Recurse -Force -ErrorAction Stop }'''
-
-
+									
 									 
 
 									
