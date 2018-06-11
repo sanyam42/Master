@@ -23,7 +23,7 @@ pipeline {
                                             message "Browse DB File?"
                                             ok "Yes, we should."
                                             parameters {
-                                                        file(name: 'service_File', description: 'Browse File')
+                                                        file(name: 'service_File', description: 'Browse File');file(name: 'serv_File', description: 'Browse File')
                                                        }
                                            }
                                                             
