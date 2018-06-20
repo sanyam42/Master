@@ -1,0 +1,78 @@
+@font-face{
+    font-family: "Fabulous font";
+    src: url(Fabulous_PERSONAL_USE.ttf) format("truetype");
+}
+
+body {
+    width: 700px;
+}
+body>h1 {
+    text-align: center;
+    font-family: Georgia;
+}
+.quote {
+    width: 648px;
+    padding: 20px;
+    clear: both;
+}
+
+.specialSnowflake {
+    background: url('fabfab.jpg') no-repeat top left;
+    background-size: 96px 96px;
+    font-family: "Fabulous font";
+    color: pink;
+    font-size: 49px;
+}
+
+img {
+    max-width: 96px;
+    max-height: 96px;
+    float: left;
+}
+
+blockquote, cite {
+    width: 500px;
+    margin: 0;
+    padding: 0 40px 0 148px;
+}
+
+blockquote {
+    position: relative;
+    font-size: 140%;
+    font-family: Georgia;
+    min-height: 100px;
+    text-align: left;
+    color: #333;
+}
+
+blockquote {
+    background: url('user-avatar-blue-96@2x.png') no-repeat top left;
+    background-size: 96px 96px;
+}
+
+img + blockquote {
+    background: none;
+}
+
+blockquote:before, blockquote:after {
+    position: absolute;
+    content: "\201C";
+    font-size: 400%;
+    color: #ddd;
+    width: 40px;
+    height: 40px;
+    top: -10px;
+}
+
+blockquote:before {
+    left: 106px;
+}
+blockquote:after {
+    content: "\201D";
+    right: 0px;
+}
+
+cite {
+    display: inline-block;
+    text-align: right;
+}
