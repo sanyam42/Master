@@ -16,7 +16,7 @@ pipeline {
                  
 
     
-       
+  stages {
 
         stage ('Deployment Stage') {
                                         steps {
@@ -24,3 +24,4 @@ pipeline {
                                             }
                                    }
         }
+}
